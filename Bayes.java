@@ -29,7 +29,7 @@ public class Bayes {
 	/**
 	* Parses a file containing emails and corresponding word counts.
 	*
-	* @param emails Reference to the set to place emails we create into.
+	* @param emails Reference to the map to place spam/non-spam word counts.
 	* @param fileName File path to the file containing the emails to parse.
 	*/
 	public static void parseEmails(Map<String, Map<String, Integer>> emails, String fileName) {
