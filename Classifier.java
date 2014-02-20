@@ -18,7 +18,7 @@ public class Classifier {
 		// Parse training and test data into sets.
 		Set<Email> trainEmails = parseEmails("./DataSet/train");
 		Set<Email> testEmails = parseEmails("./DataSet/test");
-		System.out.println(trainEmails.size());
+		
 		// Train the data and then predict the classifier
 		NaiveBayes nb = new NaiveBayes();
 		nb.train(trainEmails);
@@ -27,6 +27,8 @@ public class Classifier {
 		for (Email e : testEmails) {
 			if (e.getLabel().equals(nb.predict(e))) { correctPred++; }
 		}
+
+		// Print accuracy statistics
 		computeAccuracy(correctPred, testEmails.size());
 	}
 
@@ -59,6 +61,12 @@ public class Classifier {
 		return emails;
 	}
 
+	/**
+	* Prints out the accuracy of the predictions to the console.
+	*
+	* @param matches Integer representing number of correct predictions made.
+	* @param total Integer representing total number of predictions made.
+	*/
 	public static void computeAccuracy(int matches, int total) {
 		System.out.println("Test-Data Prediction Statistics");
 		System.out.println("-------------------------------");
