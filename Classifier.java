@@ -18,9 +18,9 @@ public class Classifier {
 		// Parse training and test data into sets.
 		Set<Email> trainEmails = parseEmails("./DataSet/train");
 		Set<Email> testEmails = parseEmails("./DataSet/test");
-		
+
 		// Train the data and then predict the classifier
-		NaiveBayes nb = new NaiveBayes();
+		NaiveBayes nb = new NaiveBayes(smooth);
 		nb.train(trainEmails);
 		int correctPred = 0;
 
