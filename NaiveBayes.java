@@ -42,6 +42,16 @@ public class NaiveBayes {
 	}
 
 	public String predict(Email email) {
-		return "";
+		double spamProb = priors.get("spam");
+		double hamProb = priors.get("ham");
+
+		for (String word : email.getWords()) {
+			Map<String, Integer> trainWords = labelCounts.get("spam");
+			double nk = email.getWords().get(word);
+			double n = email.getWords.size();
+
+			spamProb *= (email.getWords().get(word) + 1) / email.getWords().size()
+		}
+		return pred;
 	}
 }
