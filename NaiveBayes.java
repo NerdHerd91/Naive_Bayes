@@ -95,7 +95,7 @@ public class NaiveBayes {
 	private void computeWordProbs(Map<String, Integer> positions, int vocab) {
 		for (String label : this.labelCounts.keySet()) {
 			Map<String, Double> probs = new HashMap<String, Double>();
-			double den = positions.get(label) + this.smooth * vocab;
+			double den = positions.get(label) + this.smooth * (vocab + 1);
 			for (String word : this.labelCounts.get(label).keySet()) {
 				double num = this.labelCounts.get(label).get(word) + this.smooth;
 				probs.put(word, num / den);
